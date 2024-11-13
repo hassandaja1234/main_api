@@ -9,16 +9,6 @@ import tempfile
 import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
-from flask import Flask, request, jsonify
-import sys
-import os
-from detection_recognition_Methods import get_students_enc_ids,check_person_images,attendance_by_images
-from flask_cors import CORS
-from PIL import Image
-import numpy as np
-
-app = Flask(__name__)
-CORS(app)
 @app.route('/', methods=['GET'])
 def test():
     return 'test'
