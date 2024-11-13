@@ -6,7 +6,7 @@ from methods import convert_to_rgb,read_image_to_bytes
 from io import BytesIO,StringIO
 import csv
 import tempfile
-
+import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 from flask import Flask, request, jsonify
@@ -128,4 +128,5 @@ def submit_data():
 
 
 if __name__ == '__main__':
-    app.run(debug=False,host="0.0.0.0")
+    port = int(os.getenv("PORT", "5555"))  # Use Render's port or default to 5555
+    app.run(debug=False, port=port, host="0.0.0.0")
